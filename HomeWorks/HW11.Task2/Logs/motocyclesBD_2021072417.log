@@ -1,0 +1,9 @@
+2021-07-24 17:51:28.600 +03:00 [INF] Start application HW11.Task2.Program
+2021-07-24 17:51:48.976 +03:00 [INF] Incorrect data entered. Data = 2022
+2021-07-24 17:51:55.495 +03:00 [INF] Motorcycle has been added to DB
+2021-07-24 17:52:48.147 +03:00 [INF] Motorcycle has been added to DB
+2021-07-24 17:53:13.987 +03:00 [INF] Motorcycle has been added to DB
+2021-07-24 17:53:18.318 +03:00 [INF] Returned all motorcycles from DB
+2021-07-24 17:53:23.373 +03:00 [INF] Returned all motorcycles from DB
+2021-07-24 17:54:56.312 +03:00 [INF] Motorcycle has been deleted from DB
+2021-07-24 17:55:43.625 +03:00 [INF] Termination of the application HW11.Task2.Program
