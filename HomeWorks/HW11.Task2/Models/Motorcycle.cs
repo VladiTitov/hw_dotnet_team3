@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using HW11.Task2.Services;
 
 namespace HW11.Task2.Models
 {
@@ -19,6 +20,7 @@ namespace HW11.Task2.Models
                 while (value <= 0 || value > DateTime.Now.Year)
                 {
                     Console.WriteLine("Enter correct year value!");
+                    LoggingService.AddEventToLog($"Incorrect data entered. Data = {value}");
                     value = GetYearValidValue();
                 }
 
@@ -34,8 +36,11 @@ namespace HW11.Task2.Models
             while (!int.TryParse(Console.ReadLine(), out year))
             {
                 Console.WriteLine("Enter correct year value!");
+                LoggingService.AddEventToLog($"Incorrect data entered. Integer type expected. Data={year}");
             }
             return year;
         }
+
+        public override string ToString() => $"ID = {ID}, Name = {Name}, Model = {Model}, Year = {Year}, Odometer = {Odometer}";
     }
 }

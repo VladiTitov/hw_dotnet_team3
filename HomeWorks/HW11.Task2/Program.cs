@@ -8,21 +8,21 @@ namespace HW11.Task2
     {
         static void Main()
         {
-            using (ApplicationContext db = new ApplicationContext())
+            LoggingService.AddEventToLog($"Start application {typeof(Program)}");
+            using (var db = new ApplicationContext())
             {
                 IMotorcycleRepository motorcycleRepository = new MotorcycleRepository(db);
                 while (IsRepeat())
                 {
-                    var moto = new MotorcycleService().GetMotorcycle();
-                    motorcycleRepository.CreateMotorcycle(moto);
+                    MotorcycleService.MotorcycleEvents(motorcycleRepository);
                 }
             }
-            Console.ReadLine();
+            LoggingService.AddEventToLog($"Termination of the application {typeof(Program)}");
         }
 
         private static bool IsRepeat()
         {
-            Console.WriteLine($"{new string('-', 50)}\nIf you want to create a Motorcycle object, enter Y.\nFor closing, enter N.\n[Y/N]\n{new string('-', 50)}");
+            Console.WriteLine($"{new string('-', 50)}\nTo continue working with Motorcycles objects press Y.\nFor closing, enter N.\n[Y/N]\n{new string('-', 50)}");
             string value = Console.ReadLine()?.ToUpper();
 
             while (!value.Equals("Y") && !value.Equals("N"))
