@@ -1,9 +1,5 @@
 ﻿using HW11_01.Enums;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HW11_01.Models
 {
@@ -36,22 +32,20 @@ namespace HW11_01.Models
 
         public static int IntValid()
         {
-            bool valid = int.TryParse(ReadData(), out int a);
-            while (!valid)
+            int a;
+            while (int.TryParse(ReadData(),out a))
             {
                 Console.WriteLine("Incorrect data input");
-                valid = int.TryParse(ReadData(), out a);
             }
             return a;
         }
 
         public static string ReadData()
         {
-            string data = Console.ReadLine();
-            while (string.IsNullOrWhiteSpace(data))
+            string data;
+            while (string.IsNullOrWhiteSpace(data = Console.ReadLine()))
             {
                 Console.WriteLine("No data has been entered");
-                data = Console.ReadLine();
             }
             return data;
         }

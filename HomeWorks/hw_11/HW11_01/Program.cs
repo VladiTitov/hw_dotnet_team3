@@ -1,10 +1,4 @@
-﻿using HW11_01.Enums;
-using HW11_01.Models;
-using Newtonsoft.Json;
-using System.Text.Json;
-using System;
-using System.Diagnostics;
-using System.IO;
+﻿using HW11_01.Models;
 
 namespace HW11_01
 {
@@ -23,31 +17,12 @@ namespace HW11_01
             //Console.WriteLine("Input song genre");
             //Genre genre = Interactions.GenreInput(Interactions.ReadData());
 
-            string name = "Requiem";
-            int lenght = 60;
-            string songAuthor = "Mozart";
-            int year = 1800;
-            Genre genre = Interactions.GenreInput("1");
-            
-            Song song = new(name, lenght, songAuthor, year, genre);
+            Song song = new("Requiem", 60, "Mozart", 1800, Interactions.GenreInput("1"));
             var track = Interactions.GetSongData(song);
 
-            Stopwatch newtonsoft = new();
-            newtonsoft.Start();
-            string newtonsoftResult = Newtonsoft.Json.JsonConvert.SerializeObject(track);
-            newtonsoft.Stop();
-            Console.WriteLine(newtonsoftResult);
-            string jsonFile = "jsonFileSong.json"; 
-            File.WriteAllText(jsonFile, newtonsoftResult);
-
-            Stopwatch systemText = new();
-            systemText.Start();
-            string systemTextResult = System.Text.Json.JsonSerializer.Serialize(track);
-            systemText.Stop();
-            Console.WriteLine(systemTextResult);
-
-            Console.WriteLine("Newtonsoft.Json: {0} ms", newtonsoft.ElapsedMilliseconds);
-            Console.WriteLine("System.Text.Json: {0} ms", systemText.ElapsedMilliseconds);
+            JsonServices test = new();
+            test.NewtosoftService(track);
+            test.SystemTextService(track);
         }
     }
 }
