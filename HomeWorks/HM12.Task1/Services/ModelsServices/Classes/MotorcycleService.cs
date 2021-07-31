@@ -13,11 +13,21 @@ namespace HM12.Task1.Services.ModelsServices.Classes
 
         public MotorcycleService(ApplicationContext context) => _genericRepository = new GenericRepository<Motorcycle>(context);
 
-        public void CreateItem(Motorcycle item) => _genericRepository.CreateItem(item);
+        public void CreateItem() => _genericRepository.CreateItem(GetMotorcycle());
+        public void DeleteItem() => _genericRepository.DeleteItem(GetItemById(GetValidId()));
+        private int GetValidId()
+        {
+            ShowItems();
 
-        public void DeleteItem(Motorcycle item) => _genericRepository.DeleteItem(item);
-
-        public Motorcycle GetItemById(Motorcycle item) => _genericRepository.GetItemByID(motorcycle => motorcycle.ID.Equals(item.ID));
+            int id = Program.GetIntValue("Enter ID motorcycle to delete");
+            while (!GetItems().Select(i => i.ID).Contains(id))
+            {
+                Console.WriteLine("Non-existent ID entered");
+                id = Program.GetIntValue("Enter ID motorcycle to delete");
+            }
+            return id;
+        }
+        public Motorcycle GetItemById(int id) => _genericRepository.GetItemByID(motorcycle => motorcycle.ID.Equals(id));
         public void ShowItems()
         {
             Console.WriteLine(new string('-', 35));
@@ -27,9 +37,13 @@ namespace HM12.Task1.Services.ModelsServices.Classes
             }
             Console.WriteLine(new string('-', 35));
         }
-
+        private Motorcycle GetMotorcycle() => new Motorcycle()
+        {
+            Name = Program.InputOutput("Enter motocycle name:"),
+            Model = Program.InputOutput("Enter motocycle model:"),
+            Year = Program.GetIntValue("Enter motocycle year:")
+        };
         public IEnumerable<Motorcycle> GetItems() => _genericRepository.GetItems();
-
         public void UpdateItem(Motorcycle item) => _genericRepository.UpdateItem(item);
     }
 }

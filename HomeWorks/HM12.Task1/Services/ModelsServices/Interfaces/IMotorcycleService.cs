@@ -6,10 +6,10 @@ namespace HM12.Task1.Services.ModelsServices.Interfaces
     interface IMotorcycleService
     {
         IEnumerable<Motorcycle> GetItems();
-        void CreateItem(Motorcycle item);
+        void CreateItem();
         void UpdateItem(Motorcycle item);
-        void DeleteItem(Motorcycle item);
-        Motorcycle GetItemById(Motorcycle item);
+        void DeleteItem();
+        Motorcycle GetItemById(int id);
         void ShowItems();
     }
 }

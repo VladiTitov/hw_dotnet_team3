@@ -8,12 +8,10 @@ namespace HM12.Task1
         static void Main()
         {
             LoggingService.AddEventToLog($"Start application {typeof(Program)}");
-            using (var db = new ApplicationContext())
+            while (IsRepeat())
             {
-                while (IsRepeat())
-                {
-                    new ItemService(db).ItemEvent();
-                }
+                using var db = new ApplicationContext();
+                new ItemService(db).ItemEvent();
             }
             LoggingService.AddEventToLog($"Termination of the application {typeof(Program)}");
         }
@@ -29,6 +27,20 @@ namespace HM12.Task1
                 value = Console.ReadLine()?.ToUpper();
             }
             return (value.Equals("Y"));
+        }
+        public static string InputOutput(string message)
+        {
+            Console.WriteLine(message);
+            return Console.ReadLine().ToUpper();
+        }
+        public static int GetIntValue(string message)
+        {
+            int result;
+            while (!int.TryParse(InputOutput(message), out result))
+            {
+                Console.WriteLine("Enter valid value!");
+            }
+            return result;
         }
     }
 }
