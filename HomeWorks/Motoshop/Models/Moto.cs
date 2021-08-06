@@ -7,7 +7,7 @@ namespace Motoshop.Models
     {
         [Guid]
         public Guid Id { get; set; }
-        [MinYear]
+        [MinYear(2000)]
         public DateTime MadeIN { get; set; }
         public int Odometer { get; set; }
         public string Model { get; set; }

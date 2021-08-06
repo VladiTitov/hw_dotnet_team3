@@ -47,12 +47,33 @@ namespace Motoshop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Moto moto)
         {
-            GuidAttribute guid = new GuidAttribute();
-            guid.Validate(moto);
             try
             {
                 if (moto != null)
                 {
+                    Type type = moto.GetType();
+                    foreach (PropertyInfo pi in type.GetProperties())
+                    {
+                        foreach (Attribute attribute in pi.GetCustomAttributes())
+                        {
+                            GuidAttribute guid = attribute as GuidAttribute;
+                            if (guid != null)
+                            {
+                                guid.Validate(moto);
+                            }
+                        }
+                    }
+                    foreach (PropertyInfo pi in type.GetProperties())
+                    {
+                        foreach (Attribute attribute in pi.GetCustomAttributes())
+                        {
+                            MinYearAttribute minYearAttribute = attribute as MinYearAttribute;
+                            if (minYearAttribute != null)
+                            {
+                                minYearAttribute.Validate(moto);
+                            }
+                        }
+                    }
                     _motoRepository.Create(moto);
                 }
                 return RedirectToAction(nameof(Index));
