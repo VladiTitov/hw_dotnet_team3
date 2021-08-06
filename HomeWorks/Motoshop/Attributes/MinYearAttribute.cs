@@ -8,9 +8,5 @@ namespace Motoshop.Attributes
     public class MinYearAttribute : Attribute //DataTypeAttribute
     {
         int ValidYear;
-        //public MinYearAttribute(int valid)
-       // {
-            //ValidYear = valid;
-       // }
     }
 }

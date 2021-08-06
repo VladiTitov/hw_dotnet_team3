@@ -47,15 +47,8 @@ namespace Motoshop.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Moto moto)
         {
-            Type type = moto.GetType();
-            foreach(PropertyInfo pi in type.GetProperties())
-            {
-                foreach(Attribute attribute in pi.GetCustomAttributes())
-                {
-                    GuidAttribute guidAttribute = attribute as GuidAttribute;
-                }
-
-            }
+            GuidAttribute guid = new GuidAttribute();
+            guid.Validate(moto);
             try
             {
                 if (moto != null)
