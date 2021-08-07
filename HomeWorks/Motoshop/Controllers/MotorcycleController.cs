@@ -56,21 +56,21 @@ namespace Motoshop.Controllers
                     {
                         foreach (Attribute attribute in pi.GetCustomAttributes())
                         {
-                            GuidAttribute guid = attribute as GuidAttribute;
-                            if (guid != null)
+                            if (attribute is GuidAttribute)
                             {
-                                guid.Validate(moto);
+                                GuidAttribute guid = attribute as GuidAttribute;
+                                if (guid != null)
+                                {
+                                    guid.Validate(moto);
+                                }
                             }
-                        }
-                    }
-                    foreach (PropertyInfo pi in type.GetProperties())
-                    {
-                        foreach (Attribute attribute in pi.GetCustomAttributes())
-                        {
-                            MinYearAttribute minYearAttribute = attribute as MinYearAttribute;
-                            if (minYearAttribute != null)
+                            else if(attribute is MinYearAttribute)
                             {
-                                minYearAttribute.Validate(moto);
+                                MinYearAttribute minYearAttribute = attribute as MinYearAttribute;
+                                if (minYearAttribute != null)
+                                {
+                                    minYearAttribute.Validate(moto);
+                                }
                             }
                         }
                     }
@@ -80,6 +80,7 @@ namespace Motoshop.Controllers
             }
             catch
             {
+                ModelState.AddModelError("","Please check fields for errors.");
                 return View();
             }
         }
