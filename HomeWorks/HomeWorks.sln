@@ -9,6 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HM12.Task1", "HM12.Task1\HM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HM12.Task2.3", "HM12.Task2.3\HM12.Task2.3.csproj", "{6BB719A5-43D4-4040-B2A9-B85172C6C942}"
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HM12.Task2.2", "HM12.Task2.2\HM12.Task2.2.csproj", "{41F38451-6A9C-4F2C-9D9E-58187BE4C2E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motoshop", "Motoshop\Motoshop.csproj", "{A61DE6F1-F823-4FAA-8A0A-4ECF49C315DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,5 +39,15 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6EB73C18-9D82-4E17-B9E9-D696E1C0224B}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A61DE6F1-F823-4FAA-8A0A-4ECF49C315DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A61DE6F1-F823-4FAA-8A0A-4ECF49C315DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A61DE6F1-F823-4FAA-8A0A-4ECF49C315DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A61DE6F1-F823-4FAA-8A0A-4ECF49C315DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
