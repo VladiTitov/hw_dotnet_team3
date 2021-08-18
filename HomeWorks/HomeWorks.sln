@@ -2,6 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motoshop", "Motoshop\Motoshop.csproj", "{A61DE6F1-F823-4FAA-8A0A-4ECF49C315DB}"
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW_15_3", "HW_15_3\HW_15_3.csproj", "{14C6504E-769F-4FF1-82AE-E62743EB8BD3}"
 EndProject
 Global
@@ -20,6 +21,16 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6EB73C18-9D82-4E17-B9E9-D696E1C0224B}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A61DE6F1-F823-4FAA-8A0A-4ECF49C315DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A61DE6F1-F823-4FAA-8A0A-4ECF49C315DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A61DE6F1-F823-4FAA-8A0A-4ECF49C315DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A61DE6F1-F823-4FAA-8A0A-4ECF49C315DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
 Microsoft Visual Studio Solution File, Format Version 12.00
